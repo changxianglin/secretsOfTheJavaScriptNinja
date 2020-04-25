@@ -38,4 +38,11 @@ JavaScript 代码的不同类型
 用户事件
 计时器事件
 事件处理的概念是 Web 应用的核心
+
+2.3.2 注册事件处理器
+通过把函数赋给某个特殊属性 （window.onload = function() {})
+通过使用内置 addEventListener 方法 (document.body.addEventListener('mousemove', function() {} ))
+
+
+
 */
