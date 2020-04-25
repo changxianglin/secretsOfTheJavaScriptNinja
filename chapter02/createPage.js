@@ -43,6 +43,6 @@ JavaScript 代码的不同类型
 通过把函数赋给某个特殊属性 （window.onload = function() {})
 通过使用内置 addEventListener 方法 (document.body.addEventListener('mousemove', function() {} ))
 
-
-
+2.3.3 处理事件
+事件循环会检查队列
 */
