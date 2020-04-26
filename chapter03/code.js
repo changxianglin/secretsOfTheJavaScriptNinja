@@ -41,8 +41,36 @@
 //     return text
 // }) === text)
 
-var values = [0, 3, 2, 5, 7, 4, 8, 1]
+// var values = [0, 3, 2, 5, 7, 4, 8, 1]
+//
+// values.sort(function (value1, value2) {
+//     return value1 - value2
+// })
 
-values.sort(function (value1, value2) {
-    return value1 - value2
-})
+// var ninja = {}
+// ninja.name = 'hitsuke'
+//
+// var wieldSword = function () {
+//
+// }
+//
+// wieldSword.swordType = 'katana'
+
+var store = {
+    nextId: 1,
+    cache: {},
+    add: function (fn) {
+        if (!fn.id) {
+            fn.id = this.nextId++
+            this.cache[fn.id] = fn
+            return true
+        }
+    }
+}
+
+function ninja() {
+    console.log(store.add(ninja))
+    console.log(!store.add(ninja))
+}
+
+ninja()
