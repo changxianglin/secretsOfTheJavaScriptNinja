@@ -102,3 +102,52 @@
 // if (isPrime.answers['value'] !== 'undefined') {
 //     return isPrime.answers['value']
 // }
+
+// function samurai() {
+//     return 'samurai here'
+// }
+//
+// function ninja() {
+//     function hiddenNinja() {
+//         return 'ninja here'
+//     }
+//
+//     return hiddenNinja()
+// }
+
+// var a = 3
+// myFunction(4)
+// var a = function () {
+//
+// }
+// myFunction(function () {
+//
+// })
+
+// function myFunctionDeclaration() {
+//     function innnerFunction() {
+//
+//     }
+// }
+//
+// var myFunc = function () {
+//
+// }
+//
+// myFunc(function () {
+//     return function () {
+//
+//     }
+// })
+//
+// (function namedFunctionExpression() {
+//
+// })()
+
+// function doSomething(action) {
+//     action()
+// }
+
+// (function (a) {
+//     console.log(a)
+// })(3)
