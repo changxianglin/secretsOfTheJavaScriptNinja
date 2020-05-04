@@ -30,18 +30,18 @@
 // skulk.call(ninja, 'Hattori')
 // skulk.apply(ninja, ['Hattori'])
 
-function ninja() {
-
-}
-
-ninja()
-
-var samurai = function () {
-
-}
-
-samurai()
-
-(function () {
-    console.log('EFIE')
-})()
+// function ninja() {
+//
+// }
+//
+// ninja()
+//
+// var samurai = function () {
+//
+// }
+//
+// samurai()
+//
+// (function () {
+//     console.log('EFIE')
+// })()
