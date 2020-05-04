@@ -45,3 +45,10 @@
 // (function () {
 //     console.log('EFIE')
 // })()
+
+var ninja = {}
+ninja.skulk = function () {
+    console.log('method')
+}
+
+ninja.skulk()
