@@ -46,9 +46,21 @@
 //     console.log('EFIE')
 // })()
 
-var ninja = {}
-ninja.skulk = function () {
-    console.log('method')
+// var ninja = {}
+// ninja.skulk = function () {
+//     console.log('method')
+// }
+//
+// ninja.skulk()
+
+function Ninja() {
+    this.skulk = function () {
+        return this
+    }
 }
 
-ninja.skulk()
+var ninja1 = new Ninja()
+var ninja2 = new Ninja()
+
+console.log(ninja1.skulk() == ninja1, '1')
+console.log(ninja2.skulk() == ninja2, '2' )
