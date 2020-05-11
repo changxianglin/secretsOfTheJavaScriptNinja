@@ -25,22 +25,33 @@ const log = console.log.bind(console)
 // outerFunction()
 // later()
 
-function Ninja() {
-    var feints = 0
-    this.getFeints = function () {
-        return feints
-    }
-    this.feint = function () {
-        feints++
-    }
+// function Ninja() {
+//     var feints = 0
+//     this.getFeints = function () {
+//         return feints
+//     }
+//     this.feint = function () {
+//         feints++
+//     }
+// }
+//
+// var ninja1 = new Ninja()
+// ninja1.feint()
+//
+// log(ninja1.feints === undefined)
+//
+// log(ninja1.getFeints() === 1)
+//
+// var ninja2 = new Ninja()
+// log(ninja2.getFeints() === 0)
+
+function skulk(ninja) {
+    report(ninja + ' skulking')
 }
 
-var ninja1 = new Ninja()
-ninja1.feint()
+function report(message) {
+    log(message)
+}
 
-log(ninja1.feints === undefined)
-
-log(ninja1.getFeints() === 1)
-
-var ninja2 = new Ninja()
-log(ninja2.getFeints() === 0)
+skulk('Kuma')
+skulk('Yoshi')
