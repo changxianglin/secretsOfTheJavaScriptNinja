@@ -45,13 +45,16 @@ const log = console.log.bind(console)
 // var ninja2 = new Ninja()
 // log(ninja2.getFeints() === 0)
 
-function skulk(ninja) {
-    report(ninja + ' skulking')
-}
+// function skulk(ninja) {
+//     report(ninja + ' skulking')
+// }
+//
+// function report(message) {
+//     log(message)
+// }
+//
+// skulk('Kuma')
+// skulk('Yoshi')
 
-function report(message) {
-    log(message)
-}
-
-skulk('Kuma')
-skulk('Yoshi')
+var ninja = 'Hattori'
+log(ninja)
