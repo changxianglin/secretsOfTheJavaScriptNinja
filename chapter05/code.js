@@ -59,3 +59,10 @@ const log = console.log.bind(console)
 // var ninja = 'Hattori'
 // log(ninja)
 
+function report() {
+    var intro = 'Aha!'
+    log(intro === 'Aha!')
+    log(action === 'Skulking')
+    log(action === 'Muneyoshi')
+
+}
