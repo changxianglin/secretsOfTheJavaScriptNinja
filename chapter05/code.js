@@ -56,5 +56,6 @@ const log = console.log.bind(console)
 // skulk('Kuma')
 // skulk('Yoshi')
 
-var ninja = 'Hattori'
-log(ninja)
+// var ninja = 'Hattori'
+// log(ninja)
+
