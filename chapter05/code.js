@@ -59,10 +59,22 @@ const log = console.log.bind(console)
 // var ninja = 'Hattori'
 // log(ninja)
 
-function report() {
-    var intro = 'Aha!'
-    log(intro === 'Aha!')
-    log(action === 'Skulking')
-    log(action === 'Muneyoshi')
+// function report() {
+//     var intro = 'Aha!'
+//     log(intro === 'Aha!')
+//     log(action === 'Skulking')
+//     log(action === 'Muneyoshi')
+//
+// }
 
-}
+log(typeof fun === 'function')
+
+log(typeof myFunExp === 'undefined')
+
+log(typeof myArrow === 'undefined')
+
+function fun() {}
+
+var myFunExp = function () {}
+
+var myArrow = (x) => x
