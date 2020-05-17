@@ -67,14 +67,24 @@ const log = console.log.bind(console)
 //
 // }
 
+// log(typeof fun === 'function')
+//
+// log(typeof myFunExp === 'undefined')
+//
+// log(typeof myArrow === 'undefined')
+//
+// function fun() {}
+//
+// var myFunExp = function () {}
+//
+// var myArrow = (x) => x
+
 log(typeof fun === 'function')
+var fun = 3
 
-log(typeof myFunExp === 'undefined')
+log(typeof fun === 'number')
+function fun() {
 
-log(typeof myArrow === 'undefined')
+}
 
-function fun() {}
-
-var myFunExp = function () {}
-
-var myArrow = (x) => x
+log(typeof fun === 'number')
