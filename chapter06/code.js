@@ -107,14 +107,15 @@ const log = console.log.bind(console)
 //
 // ninjaGenerator.throw('Catch this!')
 
-function* NinjaGenerator(action) {
-    yield "Hattori " + action
-    return "Yoshi " + action
-}
+// function* NinjaGenerator(action) {
+//     yield "Hattori " + action
+//     return "Yoshi " + action
+// }
+//
+// const ninjaIterator = NinjaGenerator('skulk')
+// const result1 = ninjaIterator.next()
+// const result2 = ninjaIterator.next()
+//
+// log(result1.value)
+// log(result2.value)
 
-const ninjaIterator = NinjaGenerator('skulk')
-const result1 = ninjaIterator.next()
-const result2 = ninjaIterator.next()
-
-log(result1.value)
-log(result2.value)
