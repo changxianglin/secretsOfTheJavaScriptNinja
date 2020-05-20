@@ -74,3 +74,19 @@ const log = console.log.bind(console)
 // log(ninja1.id === 1, 'First ninja has id 1')
 // log(ninja2.id === 2, 'Second ninja has id 2')
 // log(ninja3.id === 3, 'Third ninja has id 3')
+
+// function* NinjaGenerator(action) {
+//     const imposter = yield ('Hattori ' + action)
+//
+//     log(imposter === 'Hanzo', 'The generator has been infiltrated')
+//     yield ('Yoshi (" + imposter + ")' + action)
+// }
+//
+// const ninjaIterator = NinjaGenerator('skulk')
+//
+// const result1 = ninjaIterator.next()
+// log(result1.value === 'Hattori skulk', 'Hattori is skulking')
+//
+// const result2 = ninjaIterator.next('Hanzo')
+// log(result2.value === 'Yoshi (Hanzo) skulk')
+
