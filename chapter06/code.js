@@ -90,19 +90,31 @@ const log = console.log.bind(console)
 // const result2 = ninjaIterator.next('Hanzo')
 // log(result2.value === 'Yoshi (Hanzo) skulk')
 
-function* NinjaGenerator() {
-    try {
-        yield 'Hattori'
-        fail("The expected exception didn't occur")
-    }
-    catch (e) {
-        log(e === 'Catch this!', "Aha! we caught an exception")
-    }
+// function* NinjaGenerator() {
+//     try {
+//         yield 'Hattori'
+//         fail("The expected exception didn't occur")
+//     }
+//     catch (e) {
+//         log(e === 'Catch this!', "Aha! we caught an exception")
+//     }
+// }
+//
+// const ninjaGenerator = NinjaGenerator()
+//
+// const result1 = ninjaGenerator.next()
+// log(result1.value === 'Hattori', 'We got Hattori')
+//
+// ninjaGenerator.throw('Catch this!')
+
+function* NinjaGenerator(action) {
+    yield "Hattori " + action
+    return "Yoshi " + action
 }
 
-const ninjaGenerator = NinjaGenerator()
+const ninjaIterator = NinjaGenerator('skulk')
+const result1 = ninjaIterator.next()
+const result2 = ninjaIterator.next()
 
-const result1 = ninjaGenerator.next()
-log(result1.value === 'Hattori', 'We got Hattori')
-
-ninjaGenerator.throw('Catch this!')
+log(result1.value)
+log(result2.value)
