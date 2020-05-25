@@ -119,3 +119,12 @@ const log = console.log.bind(console)
 // log(result1.value)
 // log(result2.value)
 
+const ninjaPromise = new Promise((resolve, reject) => {
+    resolve('Hattori')
+})
+
+ninjaPromise.then(ninja => {
+    log(ninja === 'Hattori', 'We were promised Hattori!')
+}, err => {
+    log('Fail There should not be an error')
+})
