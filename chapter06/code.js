@@ -194,3 +194,9 @@ Promise.all([
     }).catch(error => {
         log('A problem in carrying out our plan!')
 })
+
+Promise.race([getJSON('data/yoshi.json'), getJSON('data/hattori.json'), getJSON('data/hanzo.json')])
+        .then(ninja => {
+            log(ninja !== null, ninja.name + 'responded first')
+        })
+        .catch(error => log('Failure!'))
