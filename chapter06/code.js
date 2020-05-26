@@ -183,3 +183,14 @@ function getJSON(url) {
 getJSON('data/ninjas.json').then(ninjas => {
     log(ninjas !== null, 'Ninjas obtained!')
 }).catch(e => log('Should not be here: ' + e))
+
+Promise.all([
+    getJSON('data/ninjas.json'),
+    getJSON('data/ninjas.json'),
+    getJSON('data/ninjas.json')])
+    .then(results => {
+        const ninjas = results[0], mapInfo = results[1], plan = results[2]
+        log(ninjas !== undefined && mapInfo !== undefined && plan !== undefined)
+    }).catch(error => {
+        log('A problem in carrying out our plan!')
+})
