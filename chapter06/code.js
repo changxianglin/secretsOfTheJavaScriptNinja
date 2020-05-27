@@ -158,45 +158,53 @@ const log = console.log.bind(console)
 //     () => log('Happy path , were not be called!')
 // ).catch(err => log('A promise was explicitly rejected!'))
 
-function getJSON(url) {
-    return new Promise((resolve, reject) => {
-        const request = new XMLHttpRequest()
-        request.open('GET', url)
-        request.onload = function () {
-            try {
-                if (this.status === 200) {
-                    resolve(JSON.parse(this.response))
-                } else {
-                    reject(this.status + " " + this.statusText)
-                }
-            } catch (e) {
-                reject(e.message)
-            }
-        }
-        request.onerror = function () {
-            reject(this.status + ' ' + this.statusText)
-        }
-        request.send()
-    })
+// function getJSON(url) {
+//     return new Promise((resolve, reject) => {
+//         const request = new XMLHttpRequest()
+//         request.open('GET', url)
+//         request.onload = function () {
+//             try {
+//                 if (this.status === 200) {
+//                     resolve(JSON.parse(this.response))
+//                 } else {
+//                     reject(this.status + " " + this.statusText)
+//                 }
+//             } catch (e) {
+//                 reject(e.message)
+//             }
+//         }
+//         request.onerror = function () {
+//             reject(this.status + ' ' + this.statusText)
+//         }
+//         request.send()
+//     })
+// }
+//
+// getJSON('data/ninjas.json').then(ninjas => {
+//     log(ninjas !== null, 'Ninjas obtained!')
+// }).catch(e => log('Should not be here: ' + e))
+//
+// Promise.all([
+//     getJSON('data/ninjas.json'),
+//     getJSON('data/ninjas.json'),
+//     getJSON('data/ninjas.json')])
+//     .then(results => {
+//         const ninjas = results[0], mapInfo = results[1], plan = results[2]
+//         log(ninjas !== undefined && mapInfo !== undefined && plan !== undefined)
+//     }).catch(error => {
+//         log('A problem in carrying out our plan!')
+// })
+//
+// Promise.race([getJSON('data/yoshi.json'), getJSON('data/hattori.json'), getJSON('data/hanzo.json')])
+//         .then(ninja => {
+//             log(ninja !== null, ninja.name + 'responded first')
+//         })
+//         .catch(error => log('Failure!'))
+
+try {
+    const ninjas = asyncGetJSON('data/ninjas.json')
+    const mission = asyncGetJSON(ninjas[0].messionUrl)
+    const messionDetail = asyncGetJSON(mission[0].detailsUrl)
+} catch(e) {
+    log('ho no,')
 }
-
-getJSON('data/ninjas.json').then(ninjas => {
-    log(ninjas !== null, 'Ninjas obtained!')
-}).catch(e => log('Should not be here: ' + e))
-
-Promise.all([
-    getJSON('data/ninjas.json'),
-    getJSON('data/ninjas.json'),
-    getJSON('data/ninjas.json')])
-    .then(results => {
-        const ninjas = results[0], mapInfo = results[1], plan = results[2]
-        log(ninjas !== undefined && mapInfo !== undefined && plan !== undefined)
-    }).catch(error => {
-        log('A problem in carrying out our plan!')
-})
-
-Promise.race([getJSON('data/yoshi.json'), getJSON('data/hattori.json'), getJSON('data/hanzo.json')])
-        .then(ninja => {
-            log(ninja !== null, ninja.name + 'responded first')
-        })
-        .catch(error => log('Failure!'))
