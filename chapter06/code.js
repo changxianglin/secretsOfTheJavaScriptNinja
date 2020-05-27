@@ -201,10 +201,67 @@ const log = console.log.bind(console)
 //         })
 //         .catch(error => log('Failure!'))
 
-try {
-    const ninjas = asyncGetJSON('data/ninjas.json')
-    const mission = asyncGetJSON(ninjas[0].messionUrl)
-    const messionDetail = asyncGetJSON(mission[0].detailsUrl)
-} catch(e) {
-    log('ho no,')
+// try {
+//     const ninjas = asyncGetJSON('data/ninjas.json')
+//     const mission = asyncGetJSON(ninjas[0].messionUrl)
+//     const messionDetail = asyncGetJSON(mission[0].detailsUrl)
+// } catch(e) {
+//     log('ho no,')
+// }
+
+async(function *() {
+    try {
+        const ninjas = yield getJSON('data/ninjas.json')
+        const missions = yield getJSON(ninjas[0].missionsUrl)
+        const messageDetail = yield getJSON(missions[0].detailsUrl)
+    } catch(e) {
+        log('Oh no!')
+    }
+})
+
+function async(generator) {
+    var iterator = generator()
+
+    function handle(iteratorResult) {
+        if (iteratorResult.done) { return }
+
+        const iteratorValue = iteratorResult.value
+
+        if (iteratorValue instanceof Promise) {
+            iteratorValue.then(res => {
+                handle(iterator.next(res))
+            }).catch(err => iterator.throw(err))
+        }
+    }
+
+    try {
+        handle(iterator.next())
+    }
+    catch (e) {
+        iterator.throw(e)
+    }
 }
+
+getJSON('data/ninjas.json', (err, ninjas) => {
+    if (err) {
+        log('Error fetching ninjas', err)
+        return
+    }
+
+    getJSON(ninjas[0].missionsUrl, (err, missions) => {
+        if (err) {
+            log('Error locating ninja missions', err)
+            return
+        }
+        log(missions)
+    })
+})
+
+async( function*() {
+    try {
+        const ninjas = yield getJSON('data/ninjas.json')
+        const missions = yield getJSON(ninjas[0].missionUrl)
+    } catch (e) {
+        log('An error has occurred')
+    }
+})
