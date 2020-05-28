@@ -20,15 +20,15 @@ var log = console.log.bind(console)
 //     prop4: 'Hello'
 // }
 
-const yoshi = { skulk: true }
-const hattori = { sneak: true }
-const kuma = { creep: true }
-
-log('skulk' in yoshi, 'Yoshi can skulk')
-log(!("sneak" in yoshi), 'Yoshi cannot sneak')
-log(!('creep' in yoshi), 'Yoshi cannot creep')
-
-Object.setPrototypeOf(yoshi, hattori)
-
-log('sneak' in yoshi, 'Yoshi can now sneak')
-log(!("creep" in hattori), 'Hattori cannot creep')
+// const yoshi = { skulk: true }
+// const hattori = { sneak: true }
+// const kuma = { creep: true }
+//
+// log('skulk' in yoshi, 'Yoshi can skulk')
+// log(!("sneak" in yoshi), 'Yoshi cannot sneak')
+// log(!('creep' in yoshi), 'Yoshi cannot creep')
+//
+// Object.setPrototypeOf(yoshi, hattori)
+//
+// log('sneak' in yoshi, 'Yoshi can now sneak')
+// log(!("creep" in hattori), 'Hattori cannot creep')
