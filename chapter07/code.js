@@ -32,3 +32,14 @@ var log = console.log.bind(console)
 //
 // log('sneak' in yoshi, 'Yoshi can now sneak')
 // log(!("creep" in hattori), 'Hattori cannot creep')
+
+function Ninja(){}
+Ninja.prototype.swingSword = function () {
+    return true
+}
+
+const ninja1 = Ninja()
+log(ninja1 === undefined, 'No instance of Ninja created.')
+
+const ninja2 = new Ninja()
+log(ninja2 && ninja2.swingSword && ninja2.swingSword(), 'Instance exists and method is callable.')
