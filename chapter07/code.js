@@ -45,16 +45,41 @@ var log = console.log.bind(console)
 // log(ninja2 && ninja2.swingSword && ninja2.swingSword(), 'Instance exists and method is callable.')
 
 
+// function Ninja() {
+//     this.swung = false
+//     this.swingSword = function () { // 会重写原型方法
+//         return !this.swung
+//     }
+// }
+//
+// Ninja.prototype.swingSword = function () {
+//     return this.swung
+// }
+//
+// const ninja = new Ninja()
+// log(ninja.swingSword(), 'Called the instance method, not the prototype method.')
+
 function Ninja() {
-    this.swung = false
-    this.swingSword = function () { // 会重写原型方法
-        return !this.swung
-    }
+    this.swung = true
 }
+
+const ninja1 = new Ninja()
 
 Ninja.prototype.swingSword = function () {
     return this.swung
 }
 
-const ninja = new Ninja()
-log(ninja.swingSword(), 'Called the instance method, not the prototype method.')
+log(ninja1.swingSword(), 'Method exists, even out of order.')
+
+Ninja.prototype = {
+    pierce: function () {
+        return true
+    }
+}
+
+log(ninja1.swingSword(), 'Our ninja can still swing!')
+
+const ninja2 = new Ninja()
+log(ninja2.pierce(), 'Newly created ninjas can pierce')
+log(!ninja2.swingSword, 'But they cannot swing!')
+
