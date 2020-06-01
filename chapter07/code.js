@@ -58,28 +58,34 @@ var log = console.log.bind(console)
 //
 // const ninja = new Ninja()
 // log(ninja.swingSword(), 'Called the instance method, not the prototype method.')
+//
+// function Ninja() {
+//     this.swung = true
+// }
+//
+// const ninja1 = new Ninja()
+//
+// Ninja.prototype.swingSword = function () {
+//     return this.swung
+// }
+//
+// log(ninja1.swingSword(), 'Method exists, even out of order.')
+//
+// Ninja.prototype = {
+//     pierce: function () {
+//         return true
+//     }
+// }
+//
+// log(ninja1.swingSword(), 'Our ninja can still swing!')
+//
+// const ninja2 = new Ninja()
+// log(ninja2.pierce(), 'Newly created ninjas can pierce')
+// log(!ninja2.swingSword, 'But they cannot swing!')
 
-function Ninja() {
-    this.swung = true
-}
+function Ninja() {}
+const ninja = new Ninja()
 
-const ninja1 = new Ninja()
-
-Ninja.prototype.swingSword = function () {
-    return this.swung
-}
-
-log(ninja1.swingSword(), 'Method exists, even out of order.')
-
-Ninja.prototype = {
-    pierce: function () {
-        return true
-    }
-}
-
-log(ninja1.swingSword(), 'Our ninja can still swing!')
-
-const ninja2 = new Ninja()
-log(ninja2.pierce(), 'Newly created ninjas can pierce')
-log(!ninja2.swingSword, 'But they cannot swing!')
-
+log(typeof ninja === 'object', 'The type of the instance is object.')
+log(ninja instanceof Ninja, 'instanceof identifies the constructor.')
+log(ninja.constructor === Ninja, 'The ninja object was created by the Ninja function.')
