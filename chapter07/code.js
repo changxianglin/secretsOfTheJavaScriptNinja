@@ -83,9 +83,9 @@ var log = console.log.bind(console)
 // log(ninja2.pierce(), 'Newly created ninjas can pierce')
 // log(!ninja2.swingSword, 'But they cannot swing!')
 
-function Ninja() {}
-const ninja = new Ninja()
-
-log(typeof ninja === 'object', 'The type of the instance is object.')
-log(ninja instanceof Ninja, 'instanceof identifies the constructor.')
-log(ninja.constructor === Ninja, 'The ninja object was created by the Ninja function.')
+// function Ninja() {}
+// const ninja = new Ninja()
+//
+// log(typeof ninja === 'object', 'The type of the instance is object.')
+// log(ninja instanceof Ninja, 'instanceof identifies the constructor.')
+// log(ninja.constructor === Ninja, 'The ninja object was created by the Ninja function.')
