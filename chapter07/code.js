@@ -89,3 +89,27 @@ var log = console.log.bind(console)
 // log(typeof ninja === 'object', 'The type of the instance is object.')
 // log(ninja instanceof Ninja, 'instanceof identifies the constructor.')
 // log(ninja.constructor === Ninja, 'The ninja object was created by the Ninja function.')
+
+function Person() {
+
+}
+
+Person.prototype.dance = function () {
+
+}
+
+function Ninja() {
+
+}
+
+Ninja.prototype = {
+    dance: Person.prototype.dance
+}
+
+const ninja = new Ninja()
+
+log(ninja instanceof Ninja, 'ninja receives functionality from the Ninja prototype')
+
+log(ninja instanceof Person, '... and the person prototype')
+
+log(ninja instanceof Object, '... and the Object prototype')
