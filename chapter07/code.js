@@ -157,17 +157,29 @@ var log = console.log.bind(console)
 //     log(prop === 'dance', 'The only enumerable property is dance!!!')
 // }
 
-function Person() {
-
-}
+// function Person() {
+//
+// }
+//
+// function Ninja() {
+//
+// }
+//
+// Ninja.prototype = new Person()
+//
+// const ninja = new Ninja()
+//
+// log(ninja instanceof Ninja , 'Our ninja is a Ninja')
+// log(ninja instanceof Person, 'A ninja is also a Person')
 
 function Ninja() {
 
 }
 
-Ninja.prototype = new Person()
-
 const ninja = new Ninja()
 
-log(ninja instanceof Ninja , 'Our ninja is a Ninja')
-log(ninja instanceof Person, 'A ninja is also a Person')
+log(ninja instanceof Ninja, 'Our ninja is a Ninja!')
+
+Ninja.prototype = {}
+
+log(!(ninja instanceof Ninja), 'The ninja is now not a Ninja!')
