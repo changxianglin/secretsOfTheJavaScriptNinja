@@ -114,19 +114,45 @@ var log = console.log.bind(console)
 //
 // log(ninja instanceof Object, '... and the Object prototype')
 
-var ninja = {}
-ninja.name = 'Yoshi'
-ninja.weapon = 'kusarigama'
+// var ninja = {}
+// ninja.name = 'Yoshi'
+// ninja.weapon = 'kusarigama'
+//
+// Object.defineProperty(ninja, 'sneaky', {
+//     configurable: false,
+//     enumerable: false,
+//     value: true,
+//     writable: true
+// })
+//
+// log('sneaky' in ninja, 'We can access the new property')
+//
+// for (let prop in ninja) {
+//     log(prop !== undefined, 'And enumerated property： ' + prop )
+// }
 
-Object.defineProperty(ninja, 'sneaky', {
-    configurable: false,
+function Person() {
+
+}
+
+Person.prototype.dance = function () {
+
+}
+
+function Ninja() {
+
+}
+Ninja.prototype = new Person()
+
+Object.defineProperty(Ninja.prototype, 'constructor', {
     enumerable: false,
-    value: true,
+    value: Ninja,
     writable: true
 })
 
-log('sneaky' in ninja, 'We can access the new property')
+var ninja = new Ninja()
+log(ninja.constructor === Ninja)
 
-for (let prop in ninja) {
-    log(prop !== undefined, 'And enumerated property： ' + prop )
+for (let prop in Ninja.prototype) {
+    log(prop === 'dance', 'The only enumerable property is dance!!!')
 }

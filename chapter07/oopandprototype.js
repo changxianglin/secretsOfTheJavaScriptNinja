@@ -67,4 +67,6 @@
 * set
 * 调整属性的配置信息，我们可以使用内置的 Object.defineProperty 方法。
 *
+* 最后解决 constructor 属性被覆盖的问题
+*
 * */
