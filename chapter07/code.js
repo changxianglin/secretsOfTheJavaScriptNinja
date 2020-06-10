@@ -131,28 +131,43 @@ var log = console.log.bind(console)
 //     log(prop !== undefined, 'And enumerated property： ' + prop )
 // }
 
+// function Person() {
+//
+// }
+//
+// Person.prototype.dance = function () {
+//
+// }
+//
+// function Ninja() {
+//
+// }
+// Ninja.prototype = new Person()
+//
+// Object.defineProperty(Ninja.prototype, 'constructor', {
+//     enumerable: false,
+//     value: Ninja,
+//     writable: true
+// })
+//
+// var ninja = new Ninja()
+// log(ninja.constructor === Ninja)
+//
+// for (let prop in Ninja.prototype) {
+//     log(prop === 'dance', 'The only enumerable property is dance!!!')
+// }
+
 function Person() {
-
-}
-
-Person.prototype.dance = function () {
 
 }
 
 function Ninja() {
 
 }
+
 Ninja.prototype = new Person()
 
-Object.defineProperty(Ninja.prototype, 'constructor', {
-    enumerable: false,
-    value: Ninja,
-    writable: true
-})
+const ninja = new Ninja()
 
-var ninja = new Ninja()
-log(ninja.constructor === Ninja)
-
-for (let prop in Ninja.prototype) {
-    log(prop === 'dance', 'The only enumerable property is dance!!!')
-}
+log(ninja instanceof Ninja , 'Our ninja is a Ninja')
+log(ninja instanceof Person, 'A ninja is also a Person')
