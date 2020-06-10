@@ -58,5 +58,13 @@
 * 7.3.1 重写 constructor 属性的问题
 *
 * 配置对象的属性
+* 在 JavaScript 中，对象是通过属性描述进行描述的，我们可以配置一下关键字
+* configurable
+* enumerable
+* value
+* writable
+* get
+* set
+* 调整属性的配置信息，我们可以使用内置的 Object.defineProperty 方法。
 *
 * */

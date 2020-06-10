@@ -90,26 +90,43 @@ var log = console.log.bind(console)
 // log(ninja instanceof Ninja, 'instanceof identifies the constructor.')
 // log(ninja.constructor === Ninja, 'The ninja object was created by the Ninja function.')
 
-function Person() {
+// function Person() {
+//
+// }
+//
+// Person.prototype.dance = function () {
+//
+// }
+//
+// function Ninja() {
+//
+// }
+//
+// Ninja.prototype = {
+//     dance: Person.prototype.dance
+// }
+//
+// const ninja = new Ninja()
+//
+// log(ninja instanceof Ninja, 'ninja receives functionality from the Ninja prototype')
+//
+// log(ninja instanceof Person, '... and the person prototype')
+//
+// log(ninja instanceof Object, '... and the Object prototype')
 
+var ninja = {}
+ninja.name = 'Yoshi'
+ninja.weapon = 'kusarigama'
+
+Object.defineProperty(ninja, 'sneaky', {
+    configurable: false,
+    enumerable: false,
+    value: true,
+    writable: true
+})
+
+log('sneaky' in ninja, 'We can access the new property')
+
+for (let prop in ninja) {
+    log(prop !== undefined, 'And enumerated property： ' + prop )
 }
-
-Person.prototype.dance = function () {
-
-}
-
-function Ninja() {
-
-}
-
-Ninja.prototype = {
-    dance: Person.prototype.dance
-}
-
-const ninja = new Ninja()
-
-log(ninja instanceof Ninja, 'ninja receives functionality from the Ninja prototype')
-
-log(ninja instanceof Person, '... and the person prototype')
-
-log(ninja instanceof Object, '... and the Object prototype')
