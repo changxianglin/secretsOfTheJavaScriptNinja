@@ -172,14 +172,14 @@ var log = console.log.bind(console)
 // log(ninja instanceof Ninja , 'Our ninja is a Ninja')
 // log(ninja instanceof Person, 'A ninja is also a Person')
 
-function Ninja() {
-
-}
-
-const ninja = new Ninja()
-
-log(ninja instanceof Ninja, 'Our ninja is a Ninja!')
-
-Ninja.prototype = {}
-
-log(!(ninja instanceof Ninja), 'The ninja is now not a Ninja!')
+// function Ninja() {
+//
+// }
+//
+// const ninja = new Ninja()
+//
+// log(ninja instanceof Ninja, 'Our ninja is a Ninja!')
+//
+// Ninja.prototype = {}
+//
+// log(!(ninja instanceof Ninja), 'The ninja is now not a Ninja!')
