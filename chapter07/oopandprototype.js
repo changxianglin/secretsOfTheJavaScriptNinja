@@ -78,4 +78,6 @@
 * 7.4 在 es6 中使用 JavaScript 的 class
 * JavaScript 可以让我们使用原型实现继承，但是对于许多开发者，尤其是从其他语言面向对象语言转向
 * JavaScript 的开发者来说，他们会更喜欢把 JavaScript 的继承系统简化、抽象化更熟悉的形式。
+*
+* extend
 * */
