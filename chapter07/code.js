@@ -183,3 +183,19 @@ var log = console.log.bind(console)
 // Ninja.prototype = {}
 //
 // log(!(ninja instanceof Ninja), 'The ninja is now not a Ninja!')
+
+class Ninja {
+    constructor(name) {
+        this.name = name
+    }
+
+    swingSword() {
+        return true
+    }
+}
+
+var ninja = new Ninja("Yoshi")
+
+log( ninja instanceof Ninja, 'Our ninja is a Ninja')
+log(ninja.name === 'Yoshi', 'named Yoshi')
+log(ninja.swingSword(), 'and he can swing a swrod')
