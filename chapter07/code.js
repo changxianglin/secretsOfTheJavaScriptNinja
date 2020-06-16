@@ -232,21 +232,43 @@ var log = console.log.bind(console)
 //
 // log(!('swingSword' in Ninja), 'The Ninja class can not swing a sword.')
 
-function Person() {
+// function Person() {
+//
+// }
+//
+// Person.prototype.dance = function () {
+//
+// }
+//
+// function Ninja() {
+//
+// }
+// Ninja.prototype = new Person()
+//
+// Object.defineProperty(Ninja.prototype, 'constructor', {
+//     enumerable: false,
+//     value: Ninja,
+//     writable: true
+// })
 
+class Person {
+    constructor(name) {
+        this.name = name
+    }
+
+    dance() {
+        return true
+    }
 }
 
-Person.prototype.dance = function () {
-
+class Ninja extends Person{
+    constructor(name, weapon) {
+        super(name);
+        this.weapon = weapon
+    }
+    wieldWeapon() {
+        return true
+    }
 }
 
-function Ninja() {
-
-}
-Ninja.prototype = new Person()
-
-Object.defineProperty(Ninja.prototype, 'constructor', {
-    enumerable: false,
-    value: Ninja,
-    writable: true
-})
+vzr person = new Person('Bob')
