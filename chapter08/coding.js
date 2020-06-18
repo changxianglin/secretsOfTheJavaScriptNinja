@@ -48,24 +48,38 @@ const log = console.log.bind(console)
 //
 // log(ninjaCollection.firstNinja === 'Hachi' && ninjaCollection.ninjas[0] === 'Hachi', 'Now Hachi is the first ninja')
 
+// function Ninja() {
+//     let _skillLevel = 0
+//     Object.defineProperty(this, 'skillLevel', {
+//         get: () => {
+//             log('The get method is called')
+//             return _skillLevel
+//         },
+//         set: (value) => {
+//             log('The set method is called')
+//             _skillLevel = value
+//         }
+//     })
+// }
+//
+// const ninja = new Ninja()
+//
+// log(typeof ninja._skillLevel === 'undefined', 'We cannot access a private property ')
+//
+// ninja.skillLevel = 10
+//
+// log(ninja.skillLevel === 10, 'The value was updated')
+
 function Ninja() {
     let _skillLevel = 0
+
     Object.defineProperty(this, 'skillLevel', {
-        get: () => {
-            log('The get method is called')
-            return _skillLevel
-        },
-        set: (value) => {
-            log('The set method is called')
+        get: () => _skillLevel,
+        set: value => {
+            if (!Number.isInteger(value)) {
+                throw new TypeError('Skill level should be a number')
+            }
             _skillLevel = value
         }
     })
 }
-
-const ninja = new Ninja()
-
-log(typeof ninja._skillLevel === 'undefined', 'We cannot access a private property ')
-
-ninja.skillLevel = 10
-
-log(ninja.skillLevel === 10, 'The value was updated')
