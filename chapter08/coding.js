@@ -70,16 +70,53 @@ const log = console.log.bind(console)
 //
 // log(ninja.skillLevel === 10, 'The value was updated')
 
-function Ninja() {
-    let _skillLevel = 0
+// function Ninja() {
+//     let _skillLevel = 0
+//
+//     Object.defineProperty(this, 'skillLevel', {
+//         get: () => _skillLevel,
+//         set: value => {
+//             if (!Number.isInteger(value)) {
+//                 throw new TypeError('Skill level should be a number')
+//             }
+//             _skillLevel = value
+//         }
+//     })
+// }
+//
+// const ninja = new Ninja()
+//
+// ninja.skillLevel = 10
+//
+// log(ninja.skillLevel === 10, 'The value was updated')
+//
+// try {
+//     ninja.skillLevel = 'Creat'
+//     log('Should not be here')
+// } catch (e) {
+//     log('Setting a non-integer value throws an exception')
+// }
 
-    Object.defineProperty(this, 'skillLevel', {
-        get: () => _skillLevel,
-        set: value => {
-            if (!Number.isInteger(value)) {
-                throw new TypeError('Skill level should be a number')
-            }
-            _skillLevel = value
-        }
-    })
-}
+// const shogun = {
+//     name: 'Yoshiaki',
+//     clan: 'Ashikaga',
+//     get fullTitle() {
+//         return this.name + ' ' + this.clan
+//     },
+//     set fullTitle(value) {
+//         const segments = value.split(' ')
+//         this.name = segments[0]
+//         this.clan = segments[1]
+//     }
+// }
+//
+// log(shogun.name === 'Yoshiaki', 'Our shogun Yoshiaki')
+// log(shogun.clan === 'Ashikaga', 'Of clan Ashikaga')
+// log(shogun.fullTitle === 'Yoshiaki Ashikaga', 'The full name is now Yoshiaka Ashikaga')
+//
+// shogun.fullTitle = 'Teyasu Tokugawa'
+// log(shogun.name === 'Teyasu', 'Our shogun Teyasu')
+// log(shogun.clan === 'Tokugawa', 'Of clan Tokugawa')
+// log(shogun.fullTitle === 'Teyasu Tokugawa', 'The full name is now Teyasu Tokugawa')
+
+// log(representative.nickname === 'Tenno', 'The nickname is also accessible through the proxy')
