@@ -120,3 +120,22 @@ const log = console.log.bind(console)
 // log(shogun.fullTitle === 'Teyasu Tokugawa', 'The full name is now Teyasu Tokugawa')
 
 // log(representative.nickname === 'Tenno', 'The nickname is also accessible through the proxy')
+
+// function Ninja() {
+//     let _skillLevel = 0
+//
+//     Object.defineProperty(this, 'skillLevel', {
+//         get: () => {
+//             log('skillLevel get method is called')
+//             return _skillLevel
+//         },
+//         set: value => {
+//             log('skillLevel set method is called')
+//             _skillLevel = value
+//         }
+//     })
+// }
+//
+// const ninja = new Ninja()
+// ninja.skillLevel
+// ninja.skillLevel = 4
