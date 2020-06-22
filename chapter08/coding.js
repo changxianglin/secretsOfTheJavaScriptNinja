@@ -140,21 +140,21 @@ const log = console.log.bind(console)
 // ninja.skillLevel
 // ninja.skillLevel = 4
 
-function makeLoggable(target) {
-    return new Proxy(target, {
-        get: (target, property) => {
-            log('Reading ' + property)
-            return target[property]
-        },
-        set: (target, property, value) => {
-            log('Writing value ' + value + ' to ' + property)
-            target[property] = value
-        }
-    })
-}
-
-let ninja = { name: 'Yoshi' }
-ninja = makeLoggable(ninja)
-
-log(ninja.name === 'Yoshi', 'Our ninja Yoshi')
-ninja.weapon = 'sword'
+// function makeLoggable(target) {
+//     return new Proxy(target, {
+//         get: (target, property) => {
+//             log('Reading ' + property)
+//             return target[property]
+//         },
+//         set: (target, property, value) => {
+//             log('Writing value ' + value + ' to ' + property)
+//             target[property] = value
+//         }
+//     })
+// }
+//
+// let ninja = { name: 'Yoshi' }
+// ninja = makeLoggable(ninja)
+//
+// log(ninja.name === 'Yoshi', 'Our ninja Yoshi')
+// ninja.weapon = 'sword'
