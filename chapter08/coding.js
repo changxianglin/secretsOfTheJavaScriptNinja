@@ -183,21 +183,74 @@ const log = console.log.bind(console)
 //
 // isPrime(1299827)
 
-function Floder() {
-    return new Proxy({}, {
-        get: (target, property) => {
-            log('Reading ' + property)
-            if (!(property in target)) {
-                target[property] = new Floder()
-            }
+// function Floder() {
+//     return new Proxy({}, {
+//         get: (target, property) => {
+//             log('Reading ' + property)
+//             if (!(property in target)) {
+//                 target[property] = new Floder()
+//             }
+//
+//             return target[property]
+//         }
+//     })
+// }
+//
+// const rootFolder = new Floder()
+//
+// try {
+//     rootFolder.ninjasDir.firstNinjaDir.ninjaFile = 'yoshi.txt'
+//     log('An exception was not raised')
+// } catch (e) {
+//     log('An exception has occurred')
+// }
+//
+// const rootFolder = new Floder()
+// rootFolder.ninjasDir.firstNinjaDir.ninjaFile = 'yoshi.txt'
 
-            return target[property]
+function createNegativeArrayProxy(array) {
+    if (!Array.isArray(array)) {
+        throw new TypeError('Expected an array')
+    }
+    return new Proxy(array, {
+        get: (target, index) => {
+            index = +index
+            return target[index < 0 ? target.length + index : index]
+        },
+        set: (target, index, val) => {
+            index = +index
+            return target[index < 0 ? target.length + index : index] = val
         }
     })
 }
 
-const rootFolder = new Floder()
+// const ninjas = ['Yoshi', 'Kuma', 'Hattori']
+// const proxiedNinjas = createNegativeArrayProxy(ninjas)
+//
+// log(ninjas[0] === 'Yoshi' && ninjas[1] === 'Kuma' && ninjas[2] === 'Hattori', 'Array items accedded through positive indexes')
+//
+// log(proxiedNinjas[0] === 'Yoshi' && proxiedNinjas[1] === 'Kuma' && proxiedNinjas[2] === 'Hattori', 'Array items accessed through positive indexes on a proxy')
+//
+// log(typeof ninjas[-1] === 'undefined' && typeof ninjas[-2] === 'undefined' && typeof ninjas[-3] === 'undefined', '' +
+//     'Items cannot be accessed through negative indexed on an array')
+//
+// log(proxiedNinjas[-1] === 'Hattori' && proxiedNinjas[-2] === 'Kuma' && proxiedNinjas[-3] === 'Yoshi', 'But the can be accessed through negative indexes')
+//
+// proxiedNinjas[-1] = 'Hachi'
+// log(proxiedNinjas[-1] === 'Hachi' && ninjas[2] === 'Hachi', 'Items can be changed through negative indexes')
 
-try {
-    
+function measure(items) {
+    const startTime = new Date().getTime()
+
+    for (let i = 0; i < 500000; i++) {
+        items[0] === 'Yoshi'
+        items[1] === 'Kuma'
+        items[2] === 'Hattori'
+    }
+    return new Date().getTime() - startTime
 }
+
+const ninjas = ['Yoshi', 'Kuma', 'Hattori']
+const proxiedNinjas = createNegativeArrayProxy(ninjas)
+
+log('Proxies are around', Math.round(measure(proxiedNinjas)/measure(ninjas)), 'times lower')
