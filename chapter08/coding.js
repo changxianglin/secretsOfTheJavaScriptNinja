@@ -158,3 +158,27 @@ const log = console.log.bind(console)
 //
 // log(ninja.name === 'Yoshi', 'Our ninja Yoshi')
 // ninja.weapon = 'sword'
+
+function isPrime(number) {
+    if (number < 2) {
+        return false
+    }
+
+    for (let i = 2; i < number ; i++) {
+        if (number % i === 0) {
+            return false
+        }
+    }
+    return true
+}
+
+isPrime = new Proxy(isPrime, {
+    apply: (target, thisArg, args) => {
+        console.time('isPrmise')
+        const result = target.apply(thisArg, args)
+        console.timeEnd('isPrimse')
+        return result
+    }
+})
+
+isPrime(1299827)
