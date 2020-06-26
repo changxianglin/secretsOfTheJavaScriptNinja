@@ -19,4 +19,5 @@ const log = console.log.bind(console)
 // log(ninjas[0] === 'Kuma' && ninjas[1] === "Hattori", 'Kuma and Hattori')
 // log(ninjas[2] === undefined, 'But we have lost Yagyu')
 
-const samurai = new Array('Oda', 'Tomome')
+// const samurai = new Array('Oda', 'Tomome')
+
