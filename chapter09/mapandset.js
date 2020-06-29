@@ -14,6 +14,9 @@
 * unshift
 * pop
 * shift
-*
+* 性能方面
+* pop 和 push 只影响数组最后一个元素，pop 移除最后一个元素，push 在数组末尾增加元素。
+* shift 和 unshift 方法修改第一个元素，之后每一个元素的索引都需要修改，因此 pop 和 push 比
+* shift 和 unshift  要快很多。
 *
 * */
