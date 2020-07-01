@@ -53,5 +53,6 @@
 * 9.2 map (字典)
 * 9.2.1 别把对象当做 map
 * 9.2.2 创建 map
-*
+* get、set、size、has、delete
+* 处理 map时有一个基本概率是确定两个映射的 Key 是否相等。
 * */
