@@ -55,4 +55,11 @@
 * 9.2.2 创建 map
 * get、set、size、has、delete
 * 处理 map时有一个基本概率是确定两个映射的 Key 是否相等。
+* key 相等
+*
+* 9.2.3 遍历 map
+* 因为 map 是集合，可以使用 for of 循环遍历 map。
+*
+* 9.3 set (set 集合中的元素是唯一的)
+* 9.3.1 创建 set
 * */
