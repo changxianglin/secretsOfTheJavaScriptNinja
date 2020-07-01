@@ -21,3 +21,25 @@ const log = console.log.bind(console)
 
 // const samurai = new Array('Oda', 'Tomome')
 
+const dictionary = {
+    'ja': {
+        'Ninjas for hire': 'bbb',
+    },
+    'zh': {
+        'Ninjas for hire': 'aaa',
+    },
+    'ko': {
+        'Ninjas for hire': 'xx',
+    }
+}
+
+const ninjaIslandMap = new Map()
+const ninja1 = { name: 'Yoshi' }
+const ninja2 = { name: 'Hattori' }
+const ninja3 = { name: 'Kuma' }
+ninjaIslandMap.set(ninja1, { homeIsland: 'Honshu'})
+ninjaIslandMap.set(ninja2, { homeIsland: 'Hokkaido'})
+
+log(ninjaIslandMap.get(ninja1).homeIsland === 'Honshu', 'The first mapping works')
+log(ninjaIslandMap.get(ninja2).homeIsland === 'Hokkaido', 'The second mapping works')
+log(ninjaIslandMap.get(ninja3) === undefined, 'The is no mapping for the third ninja!')
