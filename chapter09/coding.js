@@ -43,3 +43,21 @@ const log = console.log.bind(console)
 // log(ninjaIslandMap.get(ninja1).homeIsland === 'Honshu', 'The first mapping works')
 // log(ninjaIslandMap.get(ninja2).homeIsland === 'Hokkaido', 'The second mapping works')
 // log(ninjaIslandMap.get(ninja3) === undefined, 'The is no mapping for the third ninja!')
+
+const ninjas = new Set(['Kuma', 'Hattori', 'Yagyu', 'Hattori'])
+
+log(ninjas.has('Hattori'), 'Hattori is in our set')
+log(ninjas.size === 3, 'There are only there ninjas in our set!')
+
+log(!ninjas.has('Yoshi'), 'Yoshi is not in , yet...')
+ninjas.add('Yoshi')
+log(ninjas.has('Yoshi'), 'Yoshi is added')
+log(ninjas.size === 4, 'There are four ninjas in our set!')
+
+log(ninjas.has('Kuma'), 'Kuma is already added')
+ninjas.add('Kuma')
+log(ninjas.size === 4, 'Adding Kuma again has no effect')
+
+for (let ninja of ninjas) {
+    log(ninja !== null, ninja)
+}
