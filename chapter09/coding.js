@@ -44,20 +44,50 @@ const log = console.log.bind(console)
 // log(ninjaIslandMap.get(ninja2).homeIsland === 'Hokkaido', 'The second mapping works')
 // log(ninjaIslandMap.get(ninja3) === undefined, 'The is no mapping for the third ninja!')
 
-const ninjas = new Set(['Kuma', 'Hattori', 'Yagyu', 'Hattori'])
+// const ninjas = new Set(['Kuma', 'Hattori', 'Yagyu', 'Hattori'])
+//
+// log(ninjas.has('Hattori'), 'Hattori is in our set')
+// log(ninjas.size === 3, 'There are only there ninjas in our set!')
+//
+// log(!ninjas.has('Yoshi'), 'Yoshi is not in , yet...')
+// ninjas.add('Yoshi')
+// log(ninjas.has('Yoshi'), 'Yoshi is added')
+// log(ninjas.size === 4, 'There are four ninjas in our set!')
+//
+// log(ninjas.has('Kuma'), 'Kuma is already added')
+// ninjas.add('Kuma')
+// log(ninjas.size === 4, 'Adding Kuma again has no effect')
+//
+// for (let ninja of ninjas) {
+//     log(ninja !== null, ninja)
+// }
 
-log(ninjas.has('Hattori'), 'Hattori is in our set')
-log(ninjas.size === 3, 'There are only there ninjas in our set!')
+// const ninjas = ['Kuma', 'Hattori', 'Yagyu']
+// const samurai = ['Hattori', 'Oda', 'Tomoe']
+//
+// const warrior = new Set([...ninjas, ...samurai])
+//
+// log(warrior.has('Kuma'), 'Kuma is here')
+// log(warrior.has('Hattori'), 'And Hattori')
+// log(warrior.has('Yagyu'), 'And Yagyu')
+// log(warrior.has('Oda'), 'And Oda')
+// log(warrior.has('Tomoe'), 'Tomoe, last but not least')
+//
+// log(warrior.size === 5, 'There are 5 warriors in total')
 
-log(!ninjas.has('Yoshi'), 'Yoshi is not in , yet...')
-ninjas.add('Yoshi')
-log(ninjas.has('Yoshi'), 'Yoshi is added')
-log(ninjas.size === 4, 'There are four ninjas in our set!')
+// const ninjas = new Set(['Kuma', 'Hattori', 'Yagyu'])
+// const samurai = new Set(['Hattori', 'Oda', 'Tomoe'])
+//
+// const ninjaSamurais = new Set([...ninjas].filter(ninjas => samurai.has(ninjas)))
+//
+// log(ninjaSamurais.size === 1, 'There is only one ninja samurai')
+// log(ninjaSamurais.has('Hattori'), 'Hattori is his name')
 
-log(ninjas.has('Kuma'), 'Kuma is already added')
-ninjas.add('Kuma')
-log(ninjas.size === 4, 'Adding Kuma again has no effect')
+const ninjas = new Set(['Kuma', 'Hattori', 'Yagyu'])
+const samurai = new Set(['Hattori', 'Oda', 'Tomoe'])
 
-for (let ninja of ninjas) {
-    log(ninja !== null, ninja)
-}
+const pureNinjas = new Set([...ninjas].filter(ninja => !samurai.has(ninja)))
+
+log(pureNinjas.size === 2, 'There is only one ninja samurai')
+log(pureNinjas.has('Kuma'), 'Kuma is a true ninja')
+log(pureNinjas.has('Yagyu'), 'Yagyu is true ninja')
